@@ -113,6 +113,9 @@ let
   emacsUnstable = (mkGitEmacs "emacs-unstable" ../repos/emacs/emacs-unstable.json { });
 
   emacsGitTreeSitter = super.lib.makeOverridable (mkGitEmacs "emacs-git-tree-sitter" ../repos/emacs/emacs-feature_tree-sitter.json) {
+    withSQLite3 = false;
+    withGTK3 = false;
+    nativeComp = false;
     withTreeSitter = true;
     withTreeSitterPlugins = (plugins: with plugins; [
       tree-sitter-python
